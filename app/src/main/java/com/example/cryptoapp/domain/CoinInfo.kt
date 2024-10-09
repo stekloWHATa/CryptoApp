@@ -1,8 +1,6 @@
 package com.example.cryptoapp.domain
 
 data class CoinInfo(
-    val type: String?,
-    val market: String?,
     val fromSymbol: String,
     val toSymbol: String?,
     val price: String?,
