@@ -41,9 +41,9 @@ class CoinPriceListActivity : AppCompatActivity() {
         }
         binding.rvCoinPriceList.adapter = adapter
         viewModel = ViewModelProvider(this, viewModelFactory)[CoinViewModel::class.java]
-        viewModel.coinInfoList.observe(this, Observer {
+        viewModel.coinInfoList.observe(this){
             adapter.submitList(it)
-        })
+        }
     }
     private fun launchDetailActivity(fromSymbol: String){
         val intent = CoinDetailActivity.newIntent(this@CoinPriceListActivity,fromSymbol)

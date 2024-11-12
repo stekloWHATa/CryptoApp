@@ -44,7 +44,7 @@ class CoinDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val fromSymbol = getSymbol()
         viewModel = ViewModelProvider(this, viewModelFactory)[CoinViewModel::class.java]
-        viewModel.getDetailInfo(fromSymbol).observe(viewLifecycleOwner, Observer {
+        viewModel.getDetailInfo(fromSymbol).observe(viewLifecycleOwner){
             with(binding){
                 tvPrice.text = it.price
                 tvMinPrice.text = it.lowDay
@@ -55,7 +55,7 @@ class CoinDetailFragment : Fragment() {
                 tvToSymbol.text = it.toSymbol
                 Picasso.get().load(it.imageUrl).into(ivLogoCoin)
             }
-        })
+        }
     }
     private fun getSymbol(): String{
         return requireArguments().getString(EXTRA_FROM_SYMBOL, "")
